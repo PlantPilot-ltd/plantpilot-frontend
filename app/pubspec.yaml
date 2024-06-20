@@ -16,8 +16,13 @@ dependencies:
   
   shared_preferences: 2.2.2
 
-  mobx: 2.3.0+1
-  flutter_mobx: 2.2.0+2
+  mobx: 2.3.3+2
+  flutter_mobx: 2.2.1+1
+
+  core:
+    path: ../core
+  ui_core:
+    path: ../ui_core
   
 
 dev_dependencies:
@@ -26,6 +31,25 @@ dev_dependencies:
   flutter_lints: 3.0.1
   dart_code_metrics_presets: 2.10.0
   build_runner: 2.4.8
-  mobx_codegen: 2.6.0+1
+  mobx_codegen: 2.6.1
 
 flutter:
+  uses-material-design: true
+  fonts:
+    - family: SFUIText
+      fonts:
+        - asset: packages/ui_core/fonts/SFUIText-Bold.ttf
+          weight: 700
+        - asset: packages/ui_core/fonts/SFUIText-Heavy.ttf
+          weight: 800
+        - asset: packages/ui_core/fonts/SFUIText-Semibold.ttf
+          weight: 600
+        - asset: packages/ui_core/fonts/SFUIText-Medium.ttf
+          weight: 500
+        - asset: packages/ui_core/fonts/SFUIText-Regular.ttf
+          weight: 400
+          style: normal
+        - asset: packages/ui_core/fonts/SFUIText-Light.ttf
+          weight: 300
+        - asset: packages/ui_core/fonts/SFUIText-UltraLight.ttf
+          weight: 200

@@ -7,4 +7,84 @@
     "files.watcherExclude": {
         "**/.fvm": true
     },
+    "folderTemplates.structures": [
+        {
+            "name": "VPD Architecture screen",
+            "structure": [
+                {
+                    "fileName": "<FTName>_screen.dart",
+                    "template": "VPD screen"
+                },
+                {
+                    "fileName": "<FTName>_presenter.dart",
+                    "template": "VPD Presenter"
+                },
+                {
+                    "fileName": "<FTName>_store.dart",
+                    "template": "VPD DataStore"
+                },
+                {
+                    "fileName": "index.dart",
+                    "template": "VPD index"
+                },
+            ]
+        },
+    ],
+    "folderTemplates.fileTemplates": {
+        "VPD screen": [
+            "import 'package:flutter/material.dart';",
+            "import 'package:ui_core/ui_core.dart';",
+            "",
+            "import '<FTName>_store.dart';",
+            "import '<FTName>_presenter.dart';",
+            "",
+            "class <FTName | pascalcase>Screen extends StatefulWidget {",
+            "  const <FTName | pascalcase>Screen({super.key});",
+            "  @override",
+            "  _<FTName | pascalcase>ScreenState createState() => _<FTName | pascalcase>ScreenState();",
+            "}",
+            "",
+            "class _<FTName | pascalcase>ScreenState extends VPDScreenState<<FTName | pascalcase>Screen, <FTName | pascalcase>Presenter> {",
+            "  <FTName | pascalcase>Store get dataStore => presenter.dataStore;",
+            "",
+            "  @override",
+            "  void initState() {",
+            "    presenter = <FTName | pascalcase>Presenter();",
+            "    super.initState();",
+            "  }",
+            "",
+            "  @override",
+            "  Widget build(BuildContext context) {",
+            "    super.build(context);",
+            "    // TODO: implement build",
+            "    throw UnimplementedError();",
+            "  }",
+            "}",
+            "",
+        ],
+        "VPD Presenter": [
+            "import 'package:ui_core/ui_core.dart';",
+            "",
+            "import '<FTName>_store.dart';",
+            "",
+            "class <FTName | pascalcase>Presenter extends VPDPresenter<<FTName | pascalcase>Store> {",
+            "  <FTName | pascalcase>Presenter() : super(dataStore: <FTName | pascalcase>Store());",
+            "}",
+            ""
+        ],
+        "VPD DataStore": [
+            "import 'package:ui_core/ui_core.dart';",
+            "import 'package:mobx/mobx.dart';",
+            "",
+            "part '<FTName>_store.g.dart';",
+            "",
+            "class <FTName | pascalcase>Store = _<FTName | pascalcase>Store with _$<FTName | pascalcase>Store;",
+            "",
+            "abstract class _<FTName | pascalcase>Store extends VPDDataStore with Store { }",
+            ""
+        ],
+        "VPD index": [
+            "export '<FTName>_screen.dart';",
+        ],
+    },
 }
