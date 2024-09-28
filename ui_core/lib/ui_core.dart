@@ -9,6 +9,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ui_core/localization/l10n/generated/app_localizations.dart';
 import 'package:ui_core/localization/l10n/generated/app_localizations_en.dart';
 
+export 'package:mobx/mobx.dart';
+
 part 'localization/app_localization.dart';
 
 part 'architecture/screen_architecture/vpd_architecture.dart';

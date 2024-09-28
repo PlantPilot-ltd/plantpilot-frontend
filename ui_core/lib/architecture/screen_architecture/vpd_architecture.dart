@@ -79,4 +79,8 @@ abstract class VPDPresenter<D extends VPDDataStore> {
 /// have to be implemented here.
 ///
 /// Also here you may store "state" variables. For example: `bool isLoading`.
-abstract class VPDDataStore with Store {}
+abstract class VPDDataStore with Store {
+  const VPDDataStore();
+
+  void dispose() {}
+}

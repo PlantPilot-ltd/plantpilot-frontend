@@ -20,7 +20,7 @@ class AppMaterialAppThemes {
         colorScheme: ColorScheme.fromSwatch().copyWith(
           secondary: AppColors.primary,
           brightness: Brightness.light,
-          background: AppColors.white2,
+          surface: AppColors.white2,
           error: AppColors.warn,
         ),
       );
@@ -43,7 +43,7 @@ class AppMaterialAppThemes {
         colorScheme: ColorScheme.fromSwatch().copyWith(
           secondary: AppColors.primary,
           brightness: Brightness.dark,
-          background: AppColors.black2,
+          surface: AppColors.black2,
           error: AppColors.warn,
         ),
       );
