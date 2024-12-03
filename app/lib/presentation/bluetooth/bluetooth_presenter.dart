@@ -1,5 +1,5 @@
 import 'package:app/repositories/index.dart';
-import 'package:ui_core/ui_core.dart';
+import 'package:core/core.dart';
 
 import 'bluetooth_dependencies.dart';
 

@@ -1,4 +1,4 @@
-part of '/ui_core.dart';
+part of '../core.dart';
 
 /// ### VPDWidget
 /// Class representing view for widget.

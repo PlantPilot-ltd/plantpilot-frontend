@@ -1,7 +1,7 @@
 part of '/ui_core.dart';
 
 /// App color scheme model
-class AppColorScheme {
+final class AppColorScheme {
   final Color primary;
 
   final Color background;

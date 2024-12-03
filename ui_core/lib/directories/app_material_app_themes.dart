@@ -1,7 +1,7 @@
 part of '/ui_core.dart';
 
 /// Builtin material themes
-class AppMaterialAppThemes {
+final class AppMaterialAppThemes {
   static ThemeData get light => ThemeData(
         fontFamily: "SFUIText",
         brightness: Brightness.light,

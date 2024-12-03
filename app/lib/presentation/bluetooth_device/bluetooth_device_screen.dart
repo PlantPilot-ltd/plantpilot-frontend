@@ -1,8 +1,7 @@
 import 'dart:convert';
 import 'package:app/repositories/index.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:ui_core/ui_core.dart';
+import 'package:core/core.dart';
 
 import 'bluetooth_device_dependencies.dart';
 import 'bluetooth_device_presenter.dart';

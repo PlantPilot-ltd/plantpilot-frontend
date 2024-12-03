@@ -1,6 +1,6 @@
 part of '/ui_core.dart';
 
-class AppThemeData {
+final class AppThemeData {
   final String themeCode;
   final ThemeData materialAppTheme;
   final SystemUiOverlayStyle systemUiOverlayStyle;

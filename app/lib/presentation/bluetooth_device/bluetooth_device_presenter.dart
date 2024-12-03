@@ -2,7 +2,7 @@ import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:app/repositories/index.dart';
-import 'package:ui_core/ui_core.dart';
+import 'package:core/core.dart';
 
 import 'bluetooth_device_dependencies.dart';
 

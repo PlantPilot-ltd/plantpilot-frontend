@@ -1,7 +1,7 @@
 part of '/ui_core.dart';
 
 /// Custom colors repository
-class AppColors {
+final class AppColors {
   static const Color primary = Color.fromRGBO(40, 75, 127, 1);
   static const Color primary20 = Color.fromRGBO(40, 75, 127, 0.2);
   static const Color lightPrimary = Color.fromRGBO(158, 197, 255, 1);

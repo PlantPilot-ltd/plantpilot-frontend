@@ -3,7 +3,6 @@ import 'package:app/presentation/index.dart';
 import 'package:app/providers/index.dart';
 import 'package:core/core.dart';
 import 'package:flutter/widgets.dart';
-import 'package:ui_core/ui_core.dart';
 
 class AppRunnerService extends AppRunnerServiceBase {
   @override
@@ -32,11 +31,11 @@ class AppRunnerService extends AppRunnerServiceBase {
   // }
 
   @override
-  Widget buildAppWidget() => const MyApp();
+  Widget buildAppWidget(BuildContext context) => const MyApp();
 
   @override
-  Widget buildErrorWidget() => InitErrorScreen();
+  Widget buildErrorWidget(BuildContext context) => InitErrorScreen();
 
   @override
-  Widget buildSplashWidget() => SplashScreen();
+  Widget buildSplashWidget(BuildContext context) => SplashScreen();
 }

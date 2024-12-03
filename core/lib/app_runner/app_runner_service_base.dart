@@ -1,4 +1,4 @@
-part of '/ui_core.dart';
+part of '../core.dart';
 
 enum AppInitStatus { idle, initialized, error }
 
@@ -43,9 +43,9 @@ abstract class AppRunnerServiceBase extends WidgetsBindingObserver {
     await beforeRun();
     runApp(
       AppRunnerWidget(
-        app: buildAppWidget(),
-        splash: buildSplashWidget(),
-        error: buildSplashWidget(),
+        app: buildAppWidget,
+        splash: buildSplashWidget,
+        error: buildErrorWidget,
         appRunnerService: this,
       ),
     );
@@ -81,9 +81,9 @@ abstract class AppRunnerServiceBase extends WidgetsBindingObserver {
   Future<Object?> afterRun();
 
   @protected
-  Widget buildAppWidget();
+  Widget buildAppWidget(BuildContext context);
   @protected
-  Widget buildSplashWidget();
+  Widget buildSplashWidget(BuildContext context);
   @protected
-  Widget buildErrorWidget();
+  Widget buildErrorWidget(BuildContext context);
 }

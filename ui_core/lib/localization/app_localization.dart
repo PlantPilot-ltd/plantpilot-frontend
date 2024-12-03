@@ -1,6 +1,6 @@
 part of '/ui_core.dart';
 
-class AppLocalization {
+final class AppLocalization {
   static AppLocalizations of(BuildContext? context) => context == null
       ? AppLocalizationsEn()
       : AppLocalizations.of(context) ?? AppLocalizationsEn();

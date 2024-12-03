@@ -1,6 +1,6 @@
 part of '../core.dart';
 
-class Debouncer {
+final class Debouncer {
   final Duration delay;
   Timer? _timer;
 

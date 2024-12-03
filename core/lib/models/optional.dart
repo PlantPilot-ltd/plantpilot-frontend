@@ -1,6 +1,6 @@
 part of '../core.dart';
 
-class Optional<T> {
+final class Optional<T> {
   final T value;
 
   const Optional(this.value);

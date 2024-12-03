@@ -1,9 +1,9 @@
-part of '/ui_core.dart';
+part of '../core.dart';
 
 class AppRunnerWidget extends StatelessWidget {
-  final Widget app;
-  final Widget splash;
-  final Widget error;
+  final WidgetBuilder app;
+  final WidgetBuilder splash;
+  final WidgetBuilder error;
 
   final AppRunnerServiceBase appRunnerService;
 
@@ -21,11 +21,11 @@ class AppRunnerWidget extends StatelessWidget {
       builder: (context) {
         switch (appRunnerService.status.value) {
           case AppInitStatus.idle:
-            return splash;
+            return splash(context);
           case AppInitStatus.initialized:
-            return app;
+            return app(context);
           case AppInitStatus.error:
-            return error;
+            return error(context);
         }
       },
     );

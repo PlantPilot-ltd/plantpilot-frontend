@@ -7,7 +7,7 @@ part of '/ui_core.dart';
 ///
 /// REQUIRED: AppTheme should be injected with [Provider] to the whole app
 /// so [keepstuff_shared_ui] package can use it.
-class AppTheme extends ChangeNotifier {
+final class AppTheme extends ChangeNotifier {
   static const String _appThemeCode = "APP_THEME_CODE";
 
   AppThemeData _themeData;
