@@ -1,5 +1,7 @@
+import 'package:app/providers/app_injection_provider.dart';
 import 'package:go_router/go_router.dart';
 import 'index.dart';
+import 'tent_controllers_list_dependencies.dart';
 
 final class TentControllersListRouter {
   static const String routePath = '/controllers';
@@ -8,8 +10,13 @@ final class TentControllersListRouter {
   static GoRoute get route => GoRoute(
         path: routePath,
         name: routeName,
-        pageBuilder: (context, state) => const NoTransitionPage(
-          child: TentControllersListScreen(),
+        pageBuilder: (context, state) => NoTransitionPage(
+          child: TentControllersListScreen(
+            dependencies: TentControllersListDependencies(
+              tentContollersRepository:
+                  AppInjectionProvider.tentContollersRepository,
+            ),
+          ),
         ),
       );
 }

@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:app/repositories/index.dart';
 import 'package:app/services/index.dart';
+import 'package:app_settings/app_settings.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart' as bl;
 import 'package:collection/collection.dart';
 import 'package:core/core.dart';
@@ -109,7 +110,7 @@ abstract class _BluetoothRepository extends VPDDataStore with Store {
       if (Platform.isAndroid) {
         await bl.FlutterBluePlus.turnOn();
       } else {
-        return _logException(const BluetoothDisabledError());
+        AppSettings.openAppSettings(type: AppSettingsType.bluetooth);
       }
     } catch (e, s) {
       return _logException(AppException.fromException(e, s));

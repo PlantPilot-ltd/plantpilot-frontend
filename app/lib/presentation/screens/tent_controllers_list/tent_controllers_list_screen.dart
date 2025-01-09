@@ -2,10 +2,14 @@ import 'package:app/repositories/index.dart';
 import 'package:flutter/material.dart';
 import 'package:core_ui/core_ui.dart';
 
+import 'tent_controllers_list_dependencies.dart';
 import 'tent_controllers_list_presenter.dart';
 
 class TentControllersListScreen extends StatefulWidget {
-  const TentControllersListScreen({super.key});
+  final TentControllersListDependencies dependencies;
+
+  const TentControllersListScreen({super.key, required this.dependencies});
+
   @override
   _TentControllersListScreenState createState() =>
       _TentControllersListScreenState();
@@ -17,7 +21,7 @@ class _TentControllersListScreenState extends VPDScreenState<
 
   @override
   void initState() {
-    presenter = TentControllersListPresenter();
+    presenter = TentControllersListPresenter(widget.dependencies);
     super.initState();
   }
 
@@ -30,6 +34,12 @@ class _TentControllersListScreenState extends VPDScreenState<
       ),
       body: Observer(
         builder: (context) {
+          if (dataStore.isLoading) {
+            return _LoadingView();
+          }
+          if (dataStore.controllers.isEmpty) {
+            return _EmptyView();
+          }
           return ListView.builder(
             itemCount: dataStore.controllers.length,
             itemBuilder: (context, index) {
@@ -42,6 +52,26 @@ class _TentControllersListScreenState extends VPDScreenState<
           );
         },
       ),
+    );
+  }
+}
+
+class _LoadingView extends StatelessWidget {
+  const _LoadingView();
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(child: CircularProgressIndicator());
+  }
+}
+
+class _EmptyView extends StatelessWidget {
+  const _EmptyView();
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Text('No controllers found'),
     );
   }
 }

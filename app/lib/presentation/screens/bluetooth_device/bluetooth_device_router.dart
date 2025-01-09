@@ -17,7 +17,7 @@ final class BluetoothDeviceRouter {
             AppInjectionProvider.bluetoothRepository.getScannedDeviceById,
           );
           return device == null
-              ? state.namedLocation(BluetoothRouter.routeName)
+              ? state.namedLocation(BluetoothControllersListRouter.routeName)
               : null;
         },
         pageBuilder: (context, state) => CupertinoPage(

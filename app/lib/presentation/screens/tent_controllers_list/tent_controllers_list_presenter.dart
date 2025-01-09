@@ -1,9 +1,10 @@
-import 'package:app/providers/index.dart';
 import 'package:app/repositories/index.dart';
 import 'package:core_ui/core_ui.dart';
 
+import 'tent_controllers_list_dependencies.dart';
+
 class TentControllersListPresenter
     extends VPDPresenter<TentContollersRepository> {
-  TentControllersListPresenter()
-      : super(dataStore: AppInjectionProvider.tentContollersRepository);
+  TentControllersListPresenter(TentControllersListDependencies dependencies)
+      : super(dataStore: dependencies.tentContollersRepository);
 }

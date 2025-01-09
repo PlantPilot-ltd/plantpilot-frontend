@@ -32,7 +32,10 @@ class AppRouter {
       //       .whereType<Listenable>(),
       // ),
       // observers: navigatorObservers.toList(),
-      routes: [RootRouter.route],
+      routes: [
+        RootRouter.route,
+        BluetoothControllersListRouter.route,
+      ],
     );
     return AppRouter(router);
   }
