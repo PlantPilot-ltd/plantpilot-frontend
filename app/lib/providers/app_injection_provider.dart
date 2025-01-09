@@ -1,5 +1,5 @@
 import 'package:app/repositories/index.dart';
-import 'package:app/router/index.dart';
+import 'package:app/presentation/index.dart';
 import 'package:app/services/index.dart';
 import 'package:get_it/get_it.dart';
 

@@ -1,0 +1,7 @@
+preferred-supported-locales: [en, ru]
+synthetic-package: false
+output-dir: ./lib/localization
+arb-dir: ./lib/assets/l10n
+template-arb-file: localization_en.arb
+output-localization-file: core_ui_localization.dart
+output-class: CoreUILocalization

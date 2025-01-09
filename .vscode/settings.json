@@ -16,6 +16,10 @@
           "template": "VPD dependencies"
         },
         {
+          "fileName": "<FTName>_router.dart",
+          "template": "VPD router"
+        },
+        {
           "fileName": "<FTName>_screen.dart",
           "template": "VPD screen"
         },
@@ -41,9 +45,31 @@
       "}",
       ""
     ],
+    "VPD router": [
+      "import 'package:go_router/go_router.dart';",
+      "import 'index.dart';",
+      "",
+      "final class <FTName | pascalcase>Router {",
+      "  static const String routePath = '/<FTName>';",
+      "  static const String routeName = '<FTName>';",
+      "",
+      "  static GoRoute get route => GoRoute(",
+      "        path: routePath,",
+      "        name: routeName,",
+      "        pageBuilder: (context, state) => const NoTransitionPage(",
+      "          child: <FTName | pascalcase>Screen(dependencies: <FTName | pascalcase>Dependencies()),",
+      "        ),",
+      "      );",
+      "}",
+      "",
+      "extension <FTName | pascalcase>RouterX on GoRouter {",
+      "  void go<FTName | pascalcase>() => goNamed(<FTName | pascalcase>Router.routeName);",
+      "}",
+      ""
+    ],
     "VPD screen": [
       "import 'package:flutter/material.dart';",
-      "import 'package:ui_core/ui_core.dart';",
+      "import 'package:core_ui/core_ui.dart';",
       "",
       "import '<FTName>_dependencies.dart';",
       "import '<FTName>_presenter.dart';",
@@ -75,7 +101,7 @@
       ""
     ],
     "VPD Presenter": [
-      "import 'package:ui_core/ui_core.dart';",
+      "import 'package:core_ui/core_ui.dart';",
       "",
       "import '<FTName>_dependencies.dart';",
       "import '<FTName>_store.dart';",
@@ -87,8 +113,7 @@
       ""
     ],
     "VPD DataStore": [
-      "import 'package:ui_core/ui_core.dart';",
-      "import 'package:mobx/mobx.dart';",
+      "import 'package:core_ui/core_ui.dart';",
       "",
       "import '<FTName>_dependencies.dart';",
       "",
@@ -104,6 +129,7 @@
     ],
     "VPD index": [
       "export '<FTName>_dependencies.dart';",
+      "export '<FTName>_router.dart';",
       "export '<FTName>_screen.dart';"
     ]
   }

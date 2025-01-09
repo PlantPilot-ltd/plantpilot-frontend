@@ -26,8 +26,8 @@ dependencies:
 
   core:
     path: ../core
-  ui_core:
-    path: ../ui_core
+  core_ui:
+    path: ../core_ui
   
 
 dev_dependencies:
@@ -40,21 +40,23 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/
   fonts:
     - family: SFUIText
       fonts:
-        - asset: packages/ui_core/fonts/SFUIText-Bold.ttf
+        - asset: packages/core_ui/assets/fonts/SFUIText-Bold.ttf
           weight: 700
-        - asset: packages/ui_core/fonts/SFUIText-Heavy.ttf
+        - asset: packages/core_ui/assets/fonts/SFUIText-Heavy.ttf
           weight: 800
-        - asset: packages/ui_core/fonts/SFUIText-Semibold.ttf
+        - asset: packages/core_ui/assets/fonts/SFUIText-Semibold.ttf
           weight: 600
-        - asset: packages/ui_core/fonts/SFUIText-Medium.ttf
+        - asset: packages/core_ui/assets/fonts/SFUIText-Medium.ttf
           weight: 500
-        - asset: packages/ui_core/fonts/SFUIText-Regular.ttf
+        - asset: packages/core_ui/assets/fonts/SFUIText-Regular.ttf
           weight: 400
           style: normal
-        - asset: packages/ui_core/fonts/SFUIText-Light.ttf
+        - asset: packages/core_ui/assets/fonts/SFUIText-Light.ttf
           weight: 300
-        - asset: packages/ui_core/fonts/SFUIText-UltraLight.ttf
+        - asset: packages/core_ui/assets/fonts/SFUIText-UltraLight.ttf
           weight: 200

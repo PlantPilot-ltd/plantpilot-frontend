@@ -6,6 +6,7 @@ import 'package:app/services/index.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart' as bl;
 import 'package:collection/collection.dart';
 import 'package:core/core.dart';
+import 'package:core_ui/core_ui.dart';
 
 part 'bluetooth_repository.g.dart';
 
