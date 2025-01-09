@@ -11,6 +11,7 @@ class AppRunnerService extends AppRunnerServiceBase {
       await Future.wait([
         // Delay to show splash
         // Future.delayed(SplashScreen.animationDuration * 2),
+        AppInjectionProvider.tentContollersRepository.fetchData(),
       ]);
       return null;
     } catch (e, stackTrace) {

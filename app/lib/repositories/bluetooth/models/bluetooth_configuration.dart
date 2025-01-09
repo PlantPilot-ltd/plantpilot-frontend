@@ -1,3 +1,4 @@
+import 'package:core/core.dart';
 import 'package:equatable/equatable.dart';
 
 class BluetoothConfiguration extends Equatable {
@@ -13,7 +14,24 @@ class BluetoothConfiguration extends Equatable {
     this.dataReceiveTick = const Duration(milliseconds: 2000),
   });
 
-  const BluetoothConfiguration.test()
+  factory BluetoothConfiguration.fromEnvironment(EnvironmentType? envType) {
+    switch (envType) {
+      case EnvironmentType.production:
+        return BluetoothConfiguration.prod();
+      case EnvironmentType.development:
+      case EnvironmentType.mock:
+      default:
+        return BluetoothConfiguration.dev();
+    }
+  }
+
+  const BluetoothConfiguration.dev()
+      : serviceUUID = '5471482b-7286-4748-9c0a-7c96ffb2b94f',
+        sendCharacteristicUUID = '95fec53e-e898-42b1-865f-86cd3e8beb70',
+        receiveCharacteristicUUID = 'cf074f53-fa00-4025-9c48-619ea024ffc7',
+        dataReceiveTick = const Duration(milliseconds: 2000);
+
+  const BluetoothConfiguration.prod()
       : serviceUUID = '5471482b-7286-4748-9c0a-7c96ffb2b94f',
         sendCharacteristicUUID = '95fec53e-e898-42b1-865f-86cd3e8beb70',
         receiveCharacteristicUUID = 'cf074f53-fa00-4025-9c48-619ea024ffc7',

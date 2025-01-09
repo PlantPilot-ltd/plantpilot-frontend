@@ -11,7 +11,7 @@
             "type": "dart",
             "args": [
                 "--dart-define-from-file",
-                ".env/dev.env",
+                "assets/.env/dev.env",
             ],
         },
         {
@@ -19,14 +19,22 @@
             "cwd": "app",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "flutterMode": "profile",
+            "args": [
+                "--dart-define-from-file",
+                "assets/.env/dev.env",
+            ],
         },
         {
             "name": "app (release mode)",
             "cwd": "app",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release"
+            "flutterMode": "release",
+            "args": [
+                "--dart-define-from-file",
+                "assets/.env/dev.env",
+            ],
         },
     ]
 }

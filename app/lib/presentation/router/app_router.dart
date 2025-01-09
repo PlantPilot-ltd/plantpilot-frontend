@@ -1,8 +1,11 @@
-import 'package:app/repositories/index.dart';
 import 'package:app/presentation/index.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class AppRouter {
+  static GlobalObjectKey<NavigatorState> get rootNavigatorKey =>
+      GlobalObjectKey<NavigatorState>('rootNavigatorKey');
+
   final GoRouter router;
 
   const AppRouter(this.router);
@@ -10,9 +13,9 @@ class AppRouter {
   factory AppRouter.create() {
     final GoRouter router = GoRouter(
       debugLogDiagnostics: true,
-      initialLocation: '/${AppRouteNames.bluetooth.name}',
-      // navigatorKey: NavigatorKeys.root,
-      onException: (_, __, router) => router.go(AppRouteNames.exception.name),
+      initialLocation: TentControllersListRouter.routePath,
+      navigatorKey: rootNavigatorKey,
+      // onException: (_, __, router) => router.go(AppRouteNames.exception.name),
       // redirect: (context, state) {
       //   for (final routeGuard in sortedRouteGuards) {
       //     final location = routeGuard.onNavigate(context, state);
@@ -28,16 +31,9 @@ class AppRouter {
       //       .map((routeGuard) => routeGuard.listenable)
       //       .whereType<Listenable>(),
       // ),
-      routes: AppRouterConfig.routes,
       // observers: navigatorObservers.toList(),
+      routes: [RootRouter.route],
     );
     return AppRouter(router);
   }
-
-  void goBluetooth() => router.goNamed(AppRouteNames.bluetooth.name);
-
-  void goBluetoothDevice(BluetoothDevice device) => router.goNamed(
-        AppRouteNames.bluetoothDevice.name,
-        pathParameters: {'id': device.remoteId},
-      );
 }

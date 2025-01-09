@@ -1,3 +1,4 @@
+import 'package:app/providers/index.dart';
 import 'package:app/repositories/index.dart';
 import 'package:app/presentation/index.dart';
 import 'package:app/services/index.dart';
@@ -13,9 +14,15 @@ class AppInjectionProvider {
   static AppRouter get router => GetIt.instance.get<AppRouter>();
 
   // ///
+  // Providers
+  static AppCacheProvider get cacheProvider => GetIt.I.get<AppCacheProvider>();
+
+  // ///
   // Repositories
   static BluetoothRepository get bluetoothRepository =>
       GetIt.instance.get<BluetoothRepository>();
+  static TentContollersRepository get tentContollersRepository =>
+      GetIt.instance.get<TentContollersRepository>();
 
   // /////////////////////////////////////////
   // //// Methods ////////////////////////////
@@ -32,13 +39,25 @@ class AppInjectionProvider {
     ///
     GetIt.I.registerSingleton<AppRouter>(AppRouter.create());
 
+    /// Environment type
+    final envType = AppConstantsProvider.environmentType;
+
+    /// Providers injection
+    final cacheProvider = await AppCacheProvider.fromEnvironment(envType);
+    GetIt.I.registerSingleton<AppCacheProvider>(cacheProvider);
+
     /// Repositories injection
     ///
     GetIt.I.registerSingleton<BluetoothRepository>(
       BluetoothRepository(
         logger: logger,
-        // TODO: take from configuration
-        config: const BluetoothConfiguration.test(),
+        config: BluetoothConfiguration.fromEnvironment(envType),
+      ),
+    );
+    GetIt.I.registerSingleton<TentContollersRepository>(
+      TentContollersRepository(
+        logger: logger,
+        cacheService: cacheProvider.controllers,
       ),
     );
   }
