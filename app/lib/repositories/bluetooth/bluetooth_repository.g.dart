@@ -13,19 +13,15 @@ mixin _$BluetoothRepository on _BluetoothRepository, Store {
       Atom(name: '_BluetoothRepository.bluetoothState', context: context);
 
   @override
-  BluetoothState get bluetoothState {
+  BluetoothStateEntity? get bluetoothState {
     _$bluetoothStateAtom.reportRead();
     return super.bluetoothState;
   }
 
-  bool _bluetoothStateIsInitialized = false;
-
   @override
-  set bluetoothState(BluetoothState value) {
-    _$bluetoothStateAtom.reportWrite(
-        value, _bluetoothStateIsInitialized ? super.bluetoothState : null, () {
+  set bluetoothState(BluetoothStateEntity? value) {
+    _$bluetoothStateAtom.reportWrite(value, super.bluetoothState, () {
       super.bluetoothState = value;
-      _bluetoothStateIsInitialized = true;
     });
   }
 
@@ -33,68 +29,31 @@ mixin _$BluetoothRepository on _BluetoothRepository, Store {
       Atom(name: '_BluetoothRepository.scanningState', context: context);
 
   @override
-  BluetoothScanningState get scanningState {
+  BluetoothScanningStateEntity? get scanningState {
     _$scanningStateAtom.reportRead();
     return super.scanningState;
   }
 
-  bool _scanningStateIsInitialized = false;
-
   @override
-  set scanningState(BluetoothScanningState value) {
-    _$scanningStateAtom.reportWrite(
-        value, _scanningStateIsInitialized ? super.scanningState : null, () {
+  set scanningState(BluetoothScanningStateEntity? value) {
+    _$scanningStateAtom.reportWrite(value, super.scanningState, () {
       super.scanningState = value;
-      _scanningStateIsInitialized = true;
     });
   }
 
-  late final _$scanResultsAtom =
-      Atom(name: '_BluetoothRepository.scanResults', context: context);
+  late final _$lastScanResultsAtom =
+      Atom(name: '_BluetoothRepository.lastScanResults', context: context);
 
   @override
-  List<BluetoothScanResult> get scanResults {
-    _$scanResultsAtom.reportRead();
-    return super.scanResults;
+  List<BluetoothScanResultEntity> get lastScanResults {
+    _$lastScanResultsAtom.reportRead();
+    return super.lastScanResults;
   }
 
   @override
-  set scanResults(List<BluetoothScanResult> value) {
-    _$scanResultsAtom.reportWrite(value, super.scanResults, () {
-      super.scanResults = value;
-    });
-  }
-
-  late final _$deviceConnectionAtom =
-      Atom(name: '_BluetoothRepository.deviceConnection', context: context);
-
-  @override
-  BluetoothConnection? get deviceConnection {
-    _$deviceConnectionAtom.reportRead();
-    return super.deviceConnection;
-  }
-
-  @override
-  set deviceConnection(BluetoothConnection? value) {
-    _$deviceConnectionAtom.reportWrite(value, super.deviceConnection, () {
-      super.deviceConnection = value;
-    });
-  }
-
-  late final _$deviceConnectionDataAtom =
-      Atom(name: '_BluetoothRepository.deviceConnectionData', context: context);
-
-  @override
-  BluetoothData? get deviceConnectionData {
-    _$deviceConnectionDataAtom.reportRead();
-    return super.deviceConnectionData;
-  }
-
-  @override
-  set deviceConnectionData(BluetoothData? value) {
-    _$deviceConnectionDataAtom.reportWrite(value, super.deviceConnectionData,
-        () {
-      super.deviceConnectionData = value;
+  set lastScanResults(List<BluetoothScanResultEntity> value) {
+    _$lastScanResultsAtom.reportWrite(value, super.lastScanResults, () {
+      super.lastScanResults = value;
     });
   }
 
@@ -103,9 +62,7 @@ mixin _$BluetoothRepository on _BluetoothRepository, Store {
     return '''
 bluetoothState: ${bluetoothState},
 scanningState: ${scanningState},
-scanResults: ${scanResults},
-deviceConnection: ${deviceConnection},
-deviceConnectionData: ${deviceConnectionData}
+lastScanResults: ${lastScanResults}
     ''';
   }
 }

@@ -3,10 +3,10 @@ import 'package:core/core.dart';
 import 'package:path_provider/path_provider.dart';
 
 final class AppCacheProvider {
-  final TentControllersCacheServiceBase controllers;
+  final GreenhousesCacheServiceBase greenhouses;
 
   const AppCacheProvider({
-    required this.controllers,
+    required this.greenhouses,
   });
 
   static Future<AppCacheProvider> fromEnvironment(
@@ -26,10 +26,10 @@ final class AppCacheProvider {
 
   AppCacheProvider._fromConfig({
     required CacheServiceConfiguration configuration,
-  }) : controllers = TentControllersCacheService(configuration: configuration);
+  }) : greenhouses = GreenhousesCacheService(configuration: configuration);
 
   AppCacheProvider.mock()
-      : controllers = TentControllersCacheServiceMock(
+      : greenhouses = GreenhousesCacheServiceMock(
           configuration: CacheServiceConfiguration(
             directory: "",
             environmentType: EnvironmentType.mock,
@@ -57,10 +57,10 @@ final class AppCacheProvider {
   }
 
   void cleanCache() {
-    controllers.cleanCache();
+    greenhouses.cleanCache();
   }
 
   void close() {
-    controllers.close();
+    greenhouses.close();
   }
 }

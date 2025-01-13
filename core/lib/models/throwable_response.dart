@@ -9,6 +9,9 @@ class ThrowableResponse<T> {
   ThrowableResponse.success(T result) : this._(result, null);
   ThrowableResponse.failure(Exception failure) : this._(null, failure);
 
+  bool get isFailed => failure != null;
+  bool get isSuccess => failure == null;
+
   void handle({
     void Function(T result)? onSuccess,
     void Function(AppException e)? onFailure,

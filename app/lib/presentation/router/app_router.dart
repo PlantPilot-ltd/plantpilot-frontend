@@ -13,7 +13,7 @@ class AppRouter {
   factory AppRouter.create() {
     final GoRouter router = GoRouter(
       debugLogDiagnostics: true,
-      initialLocation: TentControllersListRouter.routePath,
+      initialLocation: GreenhousesListRouter.routePath,
       navigatorKey: rootNavigatorKey,
       // onException: (_, __, router) => router.go(AppRouteNames.exception.name),
       // redirect: (context, state) {
@@ -34,7 +34,7 @@ class AppRouter {
       // observers: navigatorObservers.toList(),
       routes: [
         RootRouter.route,
-        BluetoothControllersListRouter.route,
+        BluetoothDevicesListRouter.route,
       ],
     );
     return AppRouter(router);

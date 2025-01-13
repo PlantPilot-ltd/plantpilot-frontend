@@ -22,7 +22,7 @@ final class RootRouter {
         branches: [
           StatefulShellBranch(
             navigatorKey: _controllersListKey,
-            routes: [TentControllersListRouter.route],
+            routes: [GreenhousesListRouter.route],
           ),
           StatefulShellBranch(
             navigatorKey: _profileKey,
@@ -33,5 +33,5 @@ final class RootRouter {
 }
 
 extension RootRouterX on GoRouter {
-  void goRoot() => goNamed(TentControllersListRouter.routeName);
+  void goRoot() => goNamed(GreenhousesListRouter.routeName);
 }

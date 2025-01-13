@@ -21,8 +21,8 @@ class AppInjectionProvider {
   // Repositories
   static BluetoothRepository get bluetoothRepository =>
       GetIt.instance.get<BluetoothRepository>();
-  static TentContollersRepository get tentContollersRepository =>
-      GetIt.instance.get<TentContollersRepository>();
+  static GreenhousesListRepository get greenhousesListRepository =>
+      GetIt.instance.get<GreenhousesListRepository>();
 
   // /////////////////////////////////////////
   // //// Methods ////////////////////////////
@@ -51,13 +51,13 @@ class AppInjectionProvider {
     GetIt.I.registerSingleton<BluetoothRepository>(
       BluetoothRepository(
         logger: logger,
-        config: BluetoothConfiguration.fromEnvironment(envType),
+        config: BluetoothConfigurationModel.fromEnvironment(envType),
       ),
     );
-    GetIt.I.registerSingleton<TentContollersRepository>(
-      TentContollersRepository(
+    GetIt.I.registerSingleton<GreenhousesListRepository>(
+      GreenhousesListRepository(
         logger: logger,
-        cacheService: cacheProvider.controllers,
+        cacheService: cacheProvider.greenhouses,
       ),
     );
   }
