@@ -30,8 +30,8 @@ final class AppCacheProvider {
 
   AppCacheProvider.mock()
       : greenhouses = GreenhousesCacheServiceMock(
-          configuration: CacheServiceConfiguration(
-            directory: "",
+          configuration: const CacheServiceConfiguration(
+            directory: '',
             environmentType: EnvironmentType.mock,
           ),
         );

@@ -1,11 +1,11 @@
 import 'package:app/entities/index.dart';
+import 'package:app/presentation/index.dart';
 import 'package:app/repositories/greenhouse/greenhouse_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:core_ui/core_ui.dart';
 
-import 'greenhouse_add_dependencies.dart';
-import 'greenhouse_add_presenter.dart';
-import 'greenhouse_add_store.dart';
+import 'package:app/presentation/screens/greenhouse_add/greenhouse_add_presenter.dart';
+import 'package:app/presentation/screens/greenhouse_add/greenhouse_add_store.dart';
 
 class GreenhouseAddScreen extends StatefulWidget {
   final GreenhouseAddDependencies dependencies;
@@ -32,37 +32,40 @@ class _GreenhouseAddScreenState
     return Scaffold(
       appBar: AppBar(
         title: Text(
-            'Bluetooth Device: ${greenhouseRepository.connection.device.advName}'),
+          'Bluetooth Device: ${greenhouseRepository.connection.device.advName}',
+        ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: presenter.onBackTap,
         ),
       ),
-      body: Observer(builder: (context) {
-        final connection = greenhouseRepository.connection;
+      body: Observer(
+        builder: (context) {
+          final connection = greenhouseRepository.connection;
 
-        final connectedDeviceId = connection.device.remoteId;
-        if (connectedDeviceId !=
-            greenhouseRepository.connection.device.remoteId) {
-          return _AnotherDeviceConnectedWidget();
-        }
+          final connectedDeviceId = connection.device.remoteId;
+          if (connectedDeviceId !=
+              greenhouseRepository.connection.device.remoteId) {
+            return const _AnotherDeviceConnectedWidget();
+          }
 
-        if (connection.state == BluetoothConnectionStateEntity.disconnected) {
-          return _NoConnectionWidget(onConnectTap: presenter.onConnectTap);
-        }
+          if (connection.state == BluetoothConnectionStateEntity.disconnected) {
+            return _NoConnectionWidget(onConnectTap: presenter.onConnectTap);
+          }
 
-        if (connection.state == BluetoothConnectionStateEntity.connecting) {
-          return _ConnectingWidget(connection: connection);
-        }
+          if (connection.state == BluetoothConnectionStateEntity.connecting) {
+            return _ConnectingWidget(connection: connection);
+          }
 
-        return _ConnectedWidget(
-          connection: connection,
-          state: greenhouseRepository.state,
-          onDisconnectTap: presenter.onDisconnectTap,
-          onTurnOffTap: presenter.onTurnLEDOffTap,
-          onTurnOnTap: presenter.onTurnLEDOnTap,
-        );
-      }),
+          return _ConnectedWidget(
+            connection: connection,
+            state: greenhouseRepository.state,
+            onDisconnectTap: presenter.onDisconnectTap,
+            onTurnOffTap: presenter.onTurnLEDOffTap,
+            onTurnOnTap: presenter.onTurnLEDOnTap,
+          );
+        },
+      ),
     );
   }
 }
@@ -72,7 +75,7 @@ class _AnotherDeviceConnectedWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Connected to another device'));
+    return const Center(child: Text('Connected to another device'));
   }
 }
 
@@ -88,9 +91,9 @@ class _ConnectingWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text('Device name: ${connection.device.advName}'),
-          CircularProgressIndicator(),
-          SizedBox(height: 8),
-          Text('Connecting to device...'),
+          const CircularProgressIndicator(),
+          const SizedBox(height: 8),
+          const Text('Connecting to device...'),
         ],
       ),
     );
@@ -108,12 +111,12 @@ class _NoConnectionWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text('Device is not connected'),
-          SizedBox(height: 8),
+          const Text('Device is not connected'),
+          const SizedBox(height: 8),
           MaterialButton(
-            child: Text('Connect'),
             color: Colors.green,
             onPressed: onConnectTap,
+            child: const Text('Connect'),
           ),
         ],
       ),
@@ -141,29 +144,29 @@ class _ConnectedWidget extends StatelessWidget {
     return ListView(
       children: [
         MaterialButton(
-          child: Text('Disconnect'),
           color: Colors.red,
           onPressed: onDisconnectTap,
+          child: const Text('Disconnect'),
         ),
-        SizedBox(height: 16),
-        Text('Device info:'),
+        const SizedBox(height: 16),
+        const Text('Device info:'),
         Text('Name: ${connection.device.advName}'),
         Text('Id: ${connection.device.remoteId}'),
         Text('Status: ${connection.state.toString()}'),
         ConstrainedBox(
-          constraints: BoxConstraints(maxHeight: 200),
+          constraints: const BoxConstraints(maxHeight: 200),
           child: SingleChildScrollView(child: Text('Data: ${state.data}')),
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         MaterialButton(
-          child: Text('Turn On LED'),
           color: Colors.green,
           onPressed: onTurnOnTap,
+          child: const Text('Turn On LED'),
         ),
         MaterialButton(
-          child: Text('Turn Off LED'),
           color: Colors.red,
           onPressed: onTurnOffTap,
+          child: const Text('Turn Off LED'),
         ),
       ],
     );

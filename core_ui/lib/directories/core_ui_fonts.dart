@@ -5,4 +5,7 @@ final class CoreUIFonts {
 
   /// Font family: SFUIText
   static const String sfUIText = 'packages/$package/SFUIText';
+
+  /// Font family: Papillon
+  static const String papillonUIText = 'packages/$package/Papillon';
 }

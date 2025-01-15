@@ -95,11 +95,47 @@ abstract class AppLocalization {
     Locale('ru')
   ];
 
-  /// No description provided for @test.
+  /// No description provided for @ghListTitle.
   ///
   /// In en, this message translates to:
-  /// **'Test'**
-  String get test;
+  /// **'Tent Controllers'**
+  String get ghListTitle;
+
+  /// No description provided for @blDevicesListTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add controller'**
+  String get blDevicesListTitle;
+
+  /// No description provided for @blDevicesListTurnedOffTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Bluetooth is turned off'**
+  String get blDevicesListTurnedOffTitle;
+
+  /// No description provided for @blDevicesListTurnedOffDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Please turn on bluetooth in settings to start searching for available devices'**
+  String get blDevicesListTurnedOffDesc;
+
+  /// No description provided for @blDevicesListTurnedOffSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'To settings'**
+  String get blDevicesListTurnedOffSettings;
+
+  /// No description provided for @blDevicesListEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No devices found'**
+  String get blDevicesListEmptyTitle;
+
+  /// No description provided for @blDevicesListEmptyDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Make sure device is turned on and you are close enough'**
+  String get blDevicesListEmptyDesc;
 }
 
 class _AppLocalizationDelegate extends LocalizationsDelegate<AppLocalization> {

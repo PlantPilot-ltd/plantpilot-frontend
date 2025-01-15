@@ -10,7 +10,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Flutter Demo',
+      title: 'Plantpilot',
+      theme: CoreUIThemes.light,
+      routerConfig: AppInjectionProvider.router.router,
       localizationsDelegates: <LocalizationsDelegate>{
         ...AppLocalization.localizationsDelegates,
         ...CoreUILocalization.localizationsDelegates,
@@ -19,11 +21,6 @@ class MyApp extends StatelessWidget {
         ...AppLocalization.supportedLocales,
         ...CoreUILocalization.supportedLocales,
       },
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      routerConfig: AppInjectionProvider.router.router,
     );
   }
 }

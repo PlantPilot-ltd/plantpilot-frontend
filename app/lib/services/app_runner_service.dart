@@ -35,8 +35,8 @@ class AppRunnerService extends AppRunnerServiceBase {
   Widget buildAppWidget(BuildContext context) => const MyApp();
 
   @override
-  Widget buildErrorWidget(BuildContext context) => InitErrorScreen();
+  Widget buildErrorWidget(BuildContext context) => const InitErrorScreen();
 
   @override
-  Widget buildSplashWidget(BuildContext context) => SplashScreen();
+  Widget buildSplashWidget(BuildContext context) => const SplashScreen();
 }

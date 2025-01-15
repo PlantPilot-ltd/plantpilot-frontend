@@ -18,7 +18,7 @@ final class GreenhouseAddRouter {
             AppInjectionProvider.bluetoothRepository.getScannedDeviceById,
           );
           return device == null
-              ? state.namedLocation(BluetoothDevicesListRouter.routeName)
+              ? state.namedLocation(GreenhousesBluetoothListRouter.routeName)
               : null;
         },
         pageBuilder: (context, state) => NoTransitionPage(

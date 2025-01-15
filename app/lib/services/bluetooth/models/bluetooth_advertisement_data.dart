@@ -27,7 +27,8 @@ class BluetoothAdvertisementDataModel extends Equatable {
   });
 
   factory BluetoothAdvertisementDataModel.fromBlModel(
-      bl.AdvertisementData model) {
+    bl.AdvertisementData model,
+  ) {
     return BluetoothAdvertisementDataModel(
       advName: model.advName,
       txPowerLevel: model.txPowerLevel,
@@ -47,7 +48,7 @@ class BluetoothAdvertisementDataModel extends Equatable {
       connectable: connectable,
       manufacturerData: manufacturerData,
       serviceData: serviceData.map((k, v) => MapEntry(bl.Guid(k), v)),
-      serviceUuids: serviceUuids.map((v) => bl.Guid(v)).toList(),
+      serviceUuids: serviceUuids.map(bl.Guid.new).toList(),
     );
   }
 

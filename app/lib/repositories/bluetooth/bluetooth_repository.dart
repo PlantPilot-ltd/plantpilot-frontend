@@ -1,6 +1,7 @@
 import 'package:app/entities/index.dart';
 import 'package:app/services/index.dart';
 import 'package:collection/collection.dart';
+import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
 
 part 'bluetooth_repository.g.dart';
@@ -16,6 +17,9 @@ abstract class _BluetoothRepository extends VPDDataStore with Store {
   List<BluetoothScanResultEntity> lastScanResults = [];
 
   late final BluetoothService _bluetoothService;
+
+  final Debouncer _stopScanDebouncer =
+      Debouncer(delay: const Duration(seconds: 5));
 
   _BluetoothRepository({
     required LogService logger,
@@ -44,7 +48,12 @@ abstract class _BluetoothRepository extends VPDDataStore with Store {
   }
 
   void _onScanResultsChange(List<BluetoothScanResultModel> results) {
-    lastScanResults = results.map(BluetoothScanResultEntity.fromModel).toList();
+    lastScanResults = [
+      ...results.map(BluetoothScanResultEntity.fromModel),
+      ..._bluetoothService
+          .getConnectedDevices()
+          .map(BluetoothScanResultEntity.fromConnectedDevice),
+    ];
   }
 
   void tryTurnOnBluetooth() {
@@ -52,11 +61,21 @@ abstract class _BluetoothRepository extends VPDDataStore with Store {
   }
 
   void startScanningForDevices() {
+    if (scanningState == BluetoothScanningStateEntity.scanning) {
+      return;
+    }
+    _stopScanDebouncer.dispose();
     _bluetoothService.startScanningForDevices();
+    lastScanResults = _bluetoothService
+        .getConnectedDevices()
+        .map(BluetoothScanResultEntity.fromConnectedDevice)
+        .toList();
   }
 
   void stopScanningForDevices() {
-    _bluetoothService.stopScanningForDevices();
+    _stopScanDebouncer.run(
+      _bluetoothService.stopScanningForDevices,
+    );
   }
 
   ///

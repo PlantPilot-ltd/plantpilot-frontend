@@ -7,9 +7,9 @@ final class RootRouter {
   static const String routePath = '/';
   static const String routeName = 'root';
 
-  static GlobalObjectKey<NavigatorState> get _controllersListKey =>
+  static const GlobalObjectKey<NavigatorState> _controllersListKey =
       GlobalObjectKey<NavigatorState>('controllersListKey');
-  static GlobalObjectKey<NavigatorState> get _profileKey =>
+  static const GlobalObjectKey<NavigatorState> _profileKey =
       GlobalObjectKey<NavigatorState>('profileKey');
 
   static StatefulShellRoute get route => StatefulShellRoute.indexedStack(

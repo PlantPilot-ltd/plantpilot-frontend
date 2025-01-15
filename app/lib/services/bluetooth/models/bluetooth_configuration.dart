@@ -17,14 +17,15 @@ class BluetoothConfigurationModel extends Equatable {
   });
 
   factory BluetoothConfigurationModel.fromEnvironment(
-      EnvironmentType? envType) {
+    EnvironmentType? envType,
+  ) {
     switch (envType) {
       case EnvironmentType.production:
-        return BluetoothConfigurationModel.prod();
+        return const BluetoothConfigurationModel.prod();
       case EnvironmentType.development:
       case EnvironmentType.mock:
       default:
-        return BluetoothConfigurationModel.dev();
+        return const BluetoothConfigurationModel.dev();
     }
   }
 

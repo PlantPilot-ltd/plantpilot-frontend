@@ -7,43 +7,20 @@ final class CoreUIThemes {
         brightness: Brightness.light,
         primaryColor: CoreUIColors.primary,
         cardColor: CoreUIColors.primary,
-        scaffoldBackgroundColor: CoreUIColors.white2,
+        scaffoldBackgroundColor: CoreUIColors.background,
         appBarTheme: const AppBarTheme(
           systemOverlayStyle: SystemUiOverlayStyle.dark,
-          backgroundColor: CoreUIColors.white2,
-          foregroundColor: CoreUIColors.black1,
+          backgroundColor: CoreUIColors.background,
+          foregroundColor: CoreUIColors.text,
         ),
         drawerTheme: const DrawerThemeData(
           scrimColor: Color.fromRGBO(0, 0, 0, 0.4),
-          backgroundColor: CoreUIColors.white2,
+          backgroundColor: CoreUIColors.background,
         ),
         colorScheme: ColorScheme.fromSwatch().copyWith(
           secondary: CoreUIColors.primary,
           brightness: Brightness.light,
-          surface: CoreUIColors.white2,
-          error: CoreUIColors.warn,
-        ),
-      );
-
-  static ThemeData get dark => ThemeData(
-        fontFamily: CoreUIFonts.sfUIText,
-        brightness: Brightness.dark,
-        primaryColor: CoreUIColors.primary,
-        cardColor: CoreUIColors.primary,
-        scaffoldBackgroundColor: Colors.black54,
-        appBarTheme: const AppBarTheme(
-          systemOverlayStyle: SystemUiOverlayStyle.light,
-          backgroundColor: CoreUIColors.black2,
-          foregroundColor: CoreUIColors.white1,
-        ),
-        drawerTheme: const DrawerThemeData(
-          scrimColor: Color.fromRGBO(0, 0, 0, 0.4),
-          backgroundColor: CoreUIColors.black2,
-        ),
-        colorScheme: ColorScheme.fromSwatch().copyWith(
-          secondary: CoreUIColors.primary,
-          brightness: Brightness.dark,
-          surface: CoreUIColors.black2,
+          surface: CoreUIColors.background,
           error: CoreUIColors.warn,
         ),
       );

@@ -1,7 +1,6 @@
+import 'package:app/presentation/index.dart';
 import 'package:app/repositories/index.dart';
 import 'package:core_ui/core_ui.dart';
-
-import 'greenhouse_add_dependencies.dart';
 
 part 'greenhouse_add_store.g.dart';
 

@@ -2,16 +2,16 @@ import 'package:app/presentation/index.dart';
 import 'package:app/providers/index.dart';
 import 'package:go_router/go_router.dart';
 
-final class BluetoothDevicesListRouter {
+final class GreenhousesBluetoothListRouter {
   static const String routePath = '/bluetooth_devices';
-  static const String routeName = 'bluetooth_devices_list';
+  static const String routeName = 'greenhouses_bluetooth_list';
 
   static GoRoute get route => GoRoute(
         path: routePath,
         name: routeName,
         pageBuilder: (context, state) => NoTransitionPage(
-          child: BluetoothDevicesListScreen(
-            dependencies: BluetoothDevicesListDependencies(
+          child: GreenhousesBluetoothListScreen(
+            dependencies: GreenhousesBluetoothListDependencies(
               router: AppInjectionProvider.router,
               blRepo: AppInjectionProvider.bluetoothRepository,
               ghRepo: AppInjectionProvider.greenhousesListRepository,
@@ -24,7 +24,7 @@ final class BluetoothDevicesListRouter {
       );
 }
 
-extension BluetoothDevicesListRouterX on GoRouter {
-  void goBluetoothDevicesList() =>
-      goNamed(BluetoothDevicesListRouter.routeName);
+extension GreenhousesBluetoothListRouterX on GoRouter {
+  void goGreenhousesBluetoothList() =>
+      goNamed(GreenhousesBluetoothListRouter.routeName);
 }

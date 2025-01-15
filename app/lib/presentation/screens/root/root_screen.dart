@@ -6,7 +6,7 @@ class RootScreen extends StatelessWidget {
   const RootScreen({super.key, required this.dependencies});
 
   void _onAddTap() {
-    dependencies.router.router.goBluetoothDevicesList();
+    dependencies.router.router.goGreenhousesBluetoothList();
   }
 
   void _onItemTap(int index) {

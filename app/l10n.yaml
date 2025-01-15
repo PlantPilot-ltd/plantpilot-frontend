@@ -1,6 +1,6 @@
 preferred-supported-locales: [en, ru]
 synthetic-package: false
-output-dir: ./lib/localization
+output-dir: ./lib/presentation/localization
 arb-dir: ./assets/l10n
 template-arb-file: localization_en.arb
 output-localization-file: app_localization.dart

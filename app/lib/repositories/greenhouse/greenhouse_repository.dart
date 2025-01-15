@@ -16,7 +16,7 @@ abstract class _GreenhousesRepository extends VPDDataStore with Store {
   late BluetoothConnectionEntity connection;
 
   @observable
-  GreenhouseStateEntity state = GreenhouseStateEntity.empty();
+  GreenhouseStateEntity state = const GreenhouseStateEntity.empty();
 
   late final BluetoothDeviceService _bluetoothDeviceService;
 
@@ -45,7 +45,7 @@ abstract class _GreenhousesRepository extends VPDDataStore with Store {
 
   void _onBluetoothData(BluetoothDataModel? connectionData) {
     if (connectionData == null) {
-      state = GreenhouseStateEntity.empty();
+      state = const GreenhouseStateEntity.empty();
       return;
     }
     try {

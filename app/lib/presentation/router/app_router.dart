@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class AppRouter {
-  static GlobalObjectKey<NavigatorState> get rootNavigatorKey =>
+  static const GlobalObjectKey<NavigatorState> rootNavigatorKey =
       GlobalObjectKey<NavigatorState>('rootNavigatorKey');
 
   final GoRouter router;
@@ -34,7 +34,7 @@ class AppRouter {
       // observers: navigatorObservers.toList(),
       routes: [
         RootRouter.route,
-        BluetoothDevicesListRouter.route,
+        GreenhousesBluetoothListRouter.route,
       ],
     );
     return AppRouter(router);

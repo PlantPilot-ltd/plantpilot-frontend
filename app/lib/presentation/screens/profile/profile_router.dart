@@ -1,5 +1,5 @@
 import 'package:go_router/go_router.dart';
-import 'index.dart';
+import 'package:app/presentation/index.dart';
 
 final class ProfileRouter {
   static const String routePath = '/profile';

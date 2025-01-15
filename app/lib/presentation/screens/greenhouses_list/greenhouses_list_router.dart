@@ -1,6 +1,6 @@
+import 'package:app/presentation/index.dart';
 import 'package:app/providers/index.dart';
 import 'package:go_router/go_router.dart';
-import 'index.dart';
 
 final class GreenhousesListRouter {
   static const String routePath = '/greenhouses';

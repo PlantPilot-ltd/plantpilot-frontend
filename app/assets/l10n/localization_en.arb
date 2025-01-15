@@ -1,3 +1,9 @@
 {
-    "test": "Test"
+    "ghListTitle": "Tent Controllers",
+    "blDevicesListTitle": "Add controller",
+    "blDevicesListTurnedOffTitle": "Bluetooth is turned off",
+    "blDevicesListTurnedOffDesc": "Please turn on bluetooth in settings to start searching for available devices",
+    "blDevicesListTurnedOffSettings": "To settings",
+    "blDevicesListEmptyTitle": "No devices found",
+    "blDevicesListEmptyDesc": "Make sure device is turned on and you are close enough"
 }

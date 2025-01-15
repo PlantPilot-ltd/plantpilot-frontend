@@ -65,7 +65,7 @@ class BluetoothService {
 
   void _onScanResultsChange(List<bl.ScanResult> results) {
     onScanResultsChange(
-      results.map((e) => BluetoothScanResultModel.fromBlModel(e)).toList(),
+      results.map(BluetoothScanResultModel.fromBlModel).toList(),
     );
   }
 
@@ -89,7 +89,7 @@ class BluetoothService {
       }
 
       if (bl.FlutterBluePlus.adapterStateNow == bl.BluetoothAdapterState.on) {
-        return VoidThrowableResponse.success();
+        return const VoidThrowableResponse.success();
       }
       if (Platform.isAndroid) {
         await bl.FlutterBluePlus.turnOn();
@@ -101,7 +101,7 @@ class BluetoothService {
     }
 
     if (bl.FlutterBluePlus.adapterStateNow == bl.BluetoothAdapterState.on) {
-      return VoidThrowableResponse.success();
+      return const VoidThrowableResponse.success();
     } else {
       return _logException(const BluetoothDisabledError());
     }
@@ -120,7 +120,7 @@ class BluetoothService {
       bl.FlutterBluePlus.startScan(
         withServices: [bl.Guid(config.serviceUUID)],
       );
-      return VoidThrowableResponse.success();
+      return const VoidThrowableResponse.success();
     } catch (e, s) {
       return _logException(AppException.fromException(e, s));
     }
@@ -130,7 +130,7 @@ class BluetoothService {
   VoidThrowableResponse stopScanningForDevices() {
     try {
       bl.FlutterBluePlus.stopScan();
-      return VoidThrowableResponse.success();
+      return const VoidThrowableResponse.success();
     } catch (e, s) {
       return _logException(AppException.fromException(e, s));
     }

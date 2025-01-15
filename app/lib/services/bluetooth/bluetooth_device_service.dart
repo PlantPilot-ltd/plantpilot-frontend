@@ -59,7 +59,8 @@ class BluetoothDeviceService with Store {
       final blDevice = _connection.device.toBlModel();
 
       onConnectionChange(
-          BluetoothConnectionModel.connecting(_connection.device));
+        BluetoothConnectionModel.connecting(_connection.device),
+      );
 
       _initDeviceConnectionListener(blDevice);
 
@@ -68,7 +69,7 @@ class BluetoothDeviceService with Store {
         autoConnect: autoConnect,
         mtu: null,
       );
-      return VoidThrowableResponse.success();
+      return const VoidThrowableResponse.success();
     } catch (e, s) {
       return _logException(AppException.fromException(e, s));
     }
@@ -99,7 +100,7 @@ class BluetoothDeviceService with Store {
           _getCharacteristics(blDevice, config.sendCharacteristicUUID);
 
       _startDataListener();
-      return VoidThrowableResponse.success();
+      return const VoidThrowableResponse.success();
     } catch (e, s) {
       return _logException(AppException.fromException(e, s));
     }
@@ -111,7 +112,7 @@ class BluetoothDeviceService with Store {
       final blDevice = _connection.device.toBlModel();
       await blDevice.disconnect();
       _processDisconnection();
-      return VoidThrowableResponse.success();
+      return const VoidThrowableResponse.success();
     } catch (e, s) {
       return _logException(AppException.fromException(e, s));
     }
@@ -123,7 +124,7 @@ class BluetoothDeviceService with Store {
     _deviceReceiveChar = null;
     _deviceSendChar = null;
     _connection = _connection.copyWith(
-      state: Optional(BluetoothConnectionStateModel.disconnected),
+      state: const Optional(BluetoothConnectionStateModel.disconnected),
     );
 
     onConnectionChange(_connection);
@@ -144,14 +145,15 @@ class BluetoothDeviceService with Store {
           _getCharacteristics(blDevice, config.sendCharacteristicUUID);
       if (_deviceSendChar == null) {
         return _logException(
-            BluetoothNoCharacteristicError(config.sendCharacteristicUUID));
+          BluetoothNoCharacteristicError(config.sendCharacteristicUUID),
+        );
       }
 
       await _deviceSendChar!.write(
         encoder(model),
         timeout: timeout,
       );
-      return VoidThrowableResponse.success();
+      return const VoidThrowableResponse.success();
     } catch (e, s) {
       return _logException(AppException.fromException(e, s));
     }

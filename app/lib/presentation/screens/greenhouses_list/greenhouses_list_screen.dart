@@ -1,9 +1,9 @@
+import 'package:app/presentation/index.dart';
 import 'package:app/repositories/index.dart';
 import 'package:flutter/material.dart';
 import 'package:core_ui/core_ui.dart';
 
-import 'greenhouses_list_dependencies.dart';
-import 'greenhouses_list_presenter.dart';
+import 'package:app/presentation/screens/greenhouses_list/greenhouses_list_presenter.dart';
 
 class GreenhousesListScreen extends StatefulWidget {
   final GreenhousesListDependencies dependencies;
@@ -26,16 +26,14 @@ class _GreenhousesListScreenState
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Tent Controllers'),
-      ),
+      appBar: CoreUiAppBar(title: context.localization.ghListTitle),
       body: Observer(
         builder: (context) {
           if (dataStore.isLoading) {
-            return _LoadingView();
+            return const _LoadingView();
           }
           if (dataStore.greenhouses.isEmpty) {
-            return _EmptyView();
+            return const _EmptyView();
           }
           return ListView.builder(
             itemCount: dataStore.greenhouses.length,
@@ -58,7 +56,7 @@ class _LoadingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: CircularProgressIndicator());
+    return const Center(child: CircularProgressIndicator());
   }
 }
 
@@ -67,7 +65,7 @@ class _EmptyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text('No controllers found'),
     );
   }

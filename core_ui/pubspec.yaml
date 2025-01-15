@@ -21,9 +21,12 @@ dependencies:
   mobx: 2.5.0
   flutter_mobx: 2.3.0
 
+  dotted_border: 2.1.0
+
 dev_dependencies:
   flutter_lints: 5.0.0
   dart_code_metrics_presets: 2.20.0
+  icon_font_generator: 4.0.0
 
 flutter:
   assets:
@@ -48,3 +51,27 @@ flutter:
           weight: 300
         - asset: lib/assets/fonts/SFUIText-UltraLight.ttf
           weight: 200
+    - family: Papillon
+      fonts:
+        - asset: lib/assets/fonts/Papillon.ttf
+          weight: 400
+          style: normal
+    - family: CoreUIIcons
+      fonts:
+        - asset: lib/assets/fonts/CoreUIIcons.otf
+
+icon_font:
+  input_svg_dir: "lib/assets/icons"
+  output_font_file: "lib/assets/fonts/CoreUIIcons.otf"
+  
+  output_class_file: "lib/directories/core_ui_icons.dart"
+  class_name: "CoreUIIcons"
+  package: core_ui
+  format: true
+
+  font_name: "CoreUIIcons"
+  normalize: true
+  ignore_shapes: true
+
+  recursive: false
+  verbose: false

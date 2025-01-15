@@ -22,12 +22,12 @@ class GreenhousesCacheServiceMock extends GreenhousesCacheServiceBase {
   @override
   VoidThrowableResponse addGreenhouse(GreenhouseCacheModel model) {
     _list.add(model);
-    return VoidThrowableResponse.success();
+    return const VoidThrowableResponse.success();
   }
 
   @override
   VoidThrowableResponse removeGreenhouse(GreenhouseCacheModel model) {
     _list.remove(model);
-    return VoidThrowableResponse.success();
+    return const VoidThrowableResponse.success();
   }
 }

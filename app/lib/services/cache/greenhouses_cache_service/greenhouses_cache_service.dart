@@ -7,9 +7,11 @@ class GreenhousesCacheService extends GreenhousesCacheServiceBase {
 
   GreenhousesCacheService({required super.configuration}) {
     Hive.registerAdapter(
-        'TentControllerCacheModel', GreenhouseCacheModel.fromJson);
+      'TentControllerCacheModel',
+      GreenhouseCacheModel.fromJson,
+    );
     _controllersBox = Hive.box<GreenhouseCacheModel>(
-      name: "tent_controllers_box",
+      name: 'tent_controllers_box',
       directory: configuration.directory,
     );
   }
@@ -33,14 +35,14 @@ class GreenhousesCacheService extends GreenhousesCacheServiceBase {
   @override
   VoidThrowableResponse addGreenhouse(GreenhouseCacheModel model) {
     final result = addOrUpdateItem(_controllersBox, model);
-    if (result.failure == null) return VoidThrowableResponse.success();
+    if (result.failure == null) return const VoidThrowableResponse.success();
     return VoidThrowableResponse.failure(result.failure!);
   }
 
   @override
   VoidThrowableResponse removeGreenhouse(GreenhouseCacheModel model) {
     final result = removeItem(_controllersBox, model);
-    if (result.failure == null) return VoidThrowableResponse.success();
+    if (result.failure == null) return const VoidThrowableResponse.success();
     return VoidThrowableResponse.failure(result.failure!);
   }
 }

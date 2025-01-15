@@ -1,7 +1,7 @@
 import 'package:app/presentation/index.dart';
 import 'package:core_ui/core_ui.dart';
 
-import 'greenhouse_add_store.dart';
+import 'package:app/presentation/screens/greenhouse_add/greenhouse_add_store.dart';
 
 class GreenhouseAddPresenter extends VPDPresenter<GreenhouseAddStore> {
   final AppRouter appRouter;
