@@ -14,3 +14,5 @@ part 'models/debouncer.dart';
 part 'models/environment_type.dart';
 part 'models/throwable_response.dart';
 part 'models/optional.dart';
+
+part 'services/log_service.dart';

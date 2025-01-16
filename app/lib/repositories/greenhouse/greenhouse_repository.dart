@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:app/entities/index.dart';
 import 'package:app/services/index.dart';
+import 'package:core/core.dart';
 import 'package:core_ui/core_ui.dart';
 
 part 'greenhouse_repository.g.dart';
@@ -26,7 +27,7 @@ abstract class _GreenhousesRepository extends VPDDataStore with Store {
     required BluetoothDeviceEntity device,
   }) : _logger = logger {
     _bluetoothDeviceService = BluetoothDeviceService(
-      logger: logger,
+      logger: _logger,
       config: config,
       device: device.toModel(),
       onConnectionChange: _onConnectionChange,

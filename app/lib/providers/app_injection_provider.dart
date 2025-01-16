@@ -2,6 +2,7 @@ import 'package:app/providers/index.dart';
 import 'package:app/repositories/index.dart';
 import 'package:app/presentation/index.dart';
 import 'package:app/services/index.dart';
+import 'package:core/core.dart';
 import 'package:get_it/get_it.dart';
 
 class AppInjectionProvider {
@@ -16,6 +17,7 @@ class AppInjectionProvider {
   // ///
   // Providers
   static AppCacheProvider get cacheProvider => GetIt.I.get<AppCacheProvider>();
+  static AppHttpProvider get httpProvider => GetIt.I.get<AppHttpProvider>();
 
   // ///
   // Repositories
@@ -32,7 +34,7 @@ class AppInjectionProvider {
   static Future<void> setupInjection() async {
     /// Utils injection
     ///
-    final logger = const LogService();
+    final logger = const DevLogService();
     GetIt.I.registerSingleton<LogService>(logger);
 
     /// Router injection
@@ -45,6 +47,9 @@ class AppInjectionProvider {
     /// Providers injection
     final cacheProvider = await AppCacheProvider.fromEnvironment(envType);
     GetIt.I.registerSingleton<AppCacheProvider>(cacheProvider);
+    final httpProvider =
+        AppHttpProvider.fromEnvironment(envType, logger: logger);
+    GetIt.I.registerSingleton<AppHttpProvider>(httpProvider);
 
     /// Repositories injection
     ///
