@@ -21,6 +21,7 @@ part 'directories/core_ui_fonts.dart';
 part 'screen_architecture/vpd_architecture.dart';
 
 part 'widgets/core_ui_app_bar.dart';
+part 'widgets/core_ui_button.dart';
 part 'widgets/core_ui_icon_button.dart';
 part 'widgets/core_ui_small_button.dart';
 part 'widgets/core_ui_small_info_block.dart';

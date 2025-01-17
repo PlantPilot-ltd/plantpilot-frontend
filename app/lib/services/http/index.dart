@@ -1,3 +1,4 @@
+export 'config/index.dart';
 export 'mock/index.dart';
 export 'models/index.dart';
 export 'plants/index.dart';

@@ -5,9 +5,11 @@ import 'package:http_interceptor/http_interceptor.dart';
 
 class AppHttpProvider {
   final PlantsHttpServiceBase plants;
+  final ConfigHttpServiceBase config;
 
   AppHttpProvider({
     required this.plants,
+    required this.config,
   });
 
   AppHttpProvider.fromConfig({
@@ -15,6 +17,7 @@ class AppHttpProvider {
     required HttpServiceConfiguration configuration,
   }) : this(
           plants: PlantsHttpService(httpClient, configuration),
+          config: ConfigHttpService(httpClient, configuration),
         );
 
   AppHttpProvider.mockFromConfig({
@@ -22,6 +25,7 @@ class AppHttpProvider {
     required HttpServiceConfiguration configuration,
   }) : this(
           plants: PlantsHttpServiceMock(httpClient, configuration),
+          config: ConfigHttpServiceMock(httpClient, configuration),
         );
 
   factory AppHttpProvider.fromEnvironment(

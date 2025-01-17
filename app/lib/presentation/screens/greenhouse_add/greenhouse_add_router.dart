@@ -1,8 +1,6 @@
 import 'package:app/entities/index.dart';
 import 'package:app/presentation/index.dart';
 import 'package:app/providers/index.dart';
-import 'package:app/repositories/index.dart';
-import 'package:app/services/bluetooth/index.dart';
 import 'package:go_router/go_router.dart';
 
 final class GreenhouseAddRouter {
@@ -25,16 +23,16 @@ final class GreenhouseAddRouter {
           child: GreenhouseAddScreen(
             dependencies: GreenhouseAddDependencies(
               appRouter: AppInjectionProvider.router,
-              greenhouseRepository: GreenhouseRepository(
-                logger: AppInjectionProvider.logger,
-                config: BluetoothConfigurationModel.fromEnvironment(
-                  AppConstantsProvider.environmentType,
-                ),
-                device: state.getObjectById(
-                  state,
-                  AppInjectionProvider.bluetoothRepository.getScannedDeviceById,
-                )!,
-              ),
+              logger: AppInjectionProvider.logger,
+              bluetoothRepository: AppInjectionProvider.bluetoothRepository,
+              greenhousesRepository:
+                  AppInjectionProvider.greenhousesListRepository,
+              plantsHttpService: AppInjectionProvider.httpProvider.plants,
+              configHttpService: AppInjectionProvider.httpProvider.config,
+              device: state.getObjectById(
+                state,
+                AppInjectionProvider.bluetoothRepository.getScannedDeviceById,
+              )!,
             ),
           ),
         ),

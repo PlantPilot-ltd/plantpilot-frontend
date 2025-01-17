@@ -87,4 +87,9 @@ abstract class _BluetoothRepository extends VPDDataStore with Store {
         .firstWhereOrNull((element) => element.device.remoteId == id)
         ?.device;
   }
+
+  String getDeviceVersionFrom(BluetoothDeviceEntity device) {
+    // TODO: Add encoding from id
+    return '0.1';
+  }
 }

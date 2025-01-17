@@ -5,5 +5,16 @@
     "blDevicesListTurnedOffDesc": "Please turn on bluetooth in settings to start searching for available devices",
     "blDevicesListTurnedOffSettings": "To settings",
     "blDevicesListEmptyTitle": "No devices found",
-    "blDevicesListEmptyDesc": "Make sure device is turned on and you are close enough"
+    "blDevicesListEmptyDesc": "Make sure device is turned on and you are close enough",
+    "ghAddSetName": "Set name",
+    "ghAddSelectPlants": "Select plants",
+    "ghAddSelectedPlants": "({count} selected)",
+    "@ghAddSelectedPlants": {
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "ghAddSelectApply": "Apply"
 }

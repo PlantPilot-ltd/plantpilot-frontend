@@ -15,6 +15,16 @@
             ],
         },
         {
+            "name": "app (Mock)",
+            "cwd": "app",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--dart-define-from-file",
+                "assets/.env/mock.env",
+            ],
+        },
+        {
             "name": "app (profile mode)",
             "cwd": "app",
             "request": "launch",

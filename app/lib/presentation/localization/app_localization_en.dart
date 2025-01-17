@@ -26,4 +26,18 @@ class AppLocalizationEn extends AppLocalization {
 
   @override
   String get blDevicesListEmptyDesc => 'Make sure device is turned on and you are close enough';
+
+  @override
+  String get ghAddSetName => 'Set name';
+
+  @override
+  String get ghAddSelectPlants => 'Select plants';
+
+  @override
+  String ghAddSelectedPlants(int count) {
+    return '($count selected)';
+  }
+
+  @override
+  String get ghAddSelectApply => 'Apply';
 }

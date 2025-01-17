@@ -33,7 +33,6 @@ abstract class _GreenhousesListRepository extends VPDDataStore with Store {
   Future<void> fetchData() async {
     isLoading = true;
     await _fetchLocalData();
-    // await _fetchRemoteData();
     isLoading = false;
   }
 
@@ -47,5 +46,13 @@ abstract class _GreenhousesListRepository extends VPDDataStore with Store {
     transaction(() {
       greenhouses = result.result!.map(GreenhouseEntity.fromCache).toList();
     });
+  }
+
+  @action
+  VoidThrowableResponse addGreenhouse(GreenhouseEntity greenhouse) {
+    final result = _cacheService.addGreenhouse(greenhouse.toCache());
+    if (result.isFailed) _logger.logException(result.failure!);
+    greenhouses = [...greenhouses, greenhouse];
+    return const VoidThrowableResponse.success();
   }
 }

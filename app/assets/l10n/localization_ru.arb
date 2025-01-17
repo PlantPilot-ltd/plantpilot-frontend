@@ -5,5 +5,16 @@
     "blDevicesListTurnedOffDesc": "Пожалуйста, включите bluetooth в настройках, чтобы начать сканирование доступных устройств",
     "blDevicesListTurnedOffSettings": "В настройки",
     "blDevicesListEmptyTitle": "Контроллеры не найдены",
-    "blDevicesListEmptyDesc": "Убедитесь, что устройство включено и вы находитесь достаточно близко"
+    "blDevicesListEmptyDesc": "Убедитесь, что устройство включено и вы находитесь достаточно близко",
+    "ghAddSetName": "Выберите название",
+    "ghAddSelectPlants": "Выберите растения",
+    "ghAddSelectedPlants": "({count} выбрано)",
+    "@ghAddSelectedPlants": {
+        "placeholders": {
+            "count": {
+                "type": "int"
+            }
+        }
+    },
+    "ghAddSelectApply": "Подтвердить"
 }

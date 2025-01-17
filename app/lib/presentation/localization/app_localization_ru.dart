@@ -26,4 +26,18 @@ class AppLocalizationRu extends AppLocalization {
 
   @override
   String get blDevicesListEmptyDesc => 'Убедитесь, что устройство включено и вы находитесь достаточно близко';
+
+  @override
+  String get ghAddSetName => 'Выберите название';
+
+  @override
+  String get ghAddSelectPlants => 'Выберите растения';
+
+  @override
+  String ghAddSelectedPlants(int count) {
+    return '($count выбрано)';
+  }
+
+  @override
+  String get ghAddSelectApply => 'Подтвердить';
 }

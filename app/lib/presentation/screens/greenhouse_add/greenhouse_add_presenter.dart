@@ -2,31 +2,41 @@ import 'package:app/presentation/index.dart';
 import 'package:core_ui/core_ui.dart';
 
 import 'package:app/presentation/screens/greenhouse_add/greenhouse_add_store.dart';
+import 'package:flutter/widgets.dart';
 
 class GreenhouseAddPresenter extends VPDPresenter<GreenhouseAddStore> {
   final AppRouter appRouter;
+
+  final TextEditingController nameController;
+
   GreenhouseAddPresenter(GreenhouseAddDependencies dependencies)
       : appRouter = dependencies.appRouter,
-        super(dataStore: GreenhouseAddStore(dependencies));
-
-  void onBackTap() {
-    // dataStore.greenhouseRepository.disconnect();
-    appRouter.router.pop();
+        nameController =
+            TextEditingController(text: dependencies.device.advName),
+        super(dataStore: GreenhouseAddStore(dependencies)) {
+    nameController.addListener(_onTextChanged);
   }
 
-  void onConnectTap() {
-    dataStore.greenhouseRepository.connect();
+  @override
+  void initState() {
+    super.initState();
+    dataStore.fetchData();
   }
 
-  void onDisconnectTap() {
-    dataStore.greenhouseRepository.disconnect();
+  @override
+  void dispose() {
+    super.dispose();
+    nameController.dispose();
   }
 
-  void onTurnLEDOnTap() {
-    dataStore.greenhouseRepository.turnOnLED();
-  }
+  void _onTextChanged() => dataStore.changeName(nameController.text);
 
-  void onTurnLEDOffTap() {
-    dataStore.greenhouseRepository.turnOffLED();
+  void onBackTap() => appRouter.router.pop();
+
+  void onApplyTap() {
+    final result = dataStore.addGreenhouse();
+    if (result.isSuccess) {
+      appRouter.router.goGreenhousesList();
+    }
   }
 }

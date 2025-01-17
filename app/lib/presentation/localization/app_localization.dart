@@ -136,6 +136,30 @@ abstract class AppLocalization {
   /// In en, this message translates to:
   /// **'Make sure device is turned on and you are close enough'**
   String get blDevicesListEmptyDesc;
+
+  /// No description provided for @ghAddSetName.
+  ///
+  /// In en, this message translates to:
+  /// **'Set name'**
+  String get ghAddSetName;
+
+  /// No description provided for @ghAddSelectPlants.
+  ///
+  /// In en, this message translates to:
+  /// **'Select plants'**
+  String get ghAddSelectPlants;
+
+  /// No description provided for @ghAddSelectedPlants.
+  ///
+  /// In en, this message translates to:
+  /// **'({count} selected)'**
+  String ghAddSelectedPlants(int count);
+
+  /// No description provided for @ghAddSelectApply.
+  ///
+  /// In en, this message translates to:
+  /// **'Apply'**
+  String get ghAddSelectApply;
 }
 
 class _AppLocalizationDelegate extends LocalizationsDelegate<AppLocalization> {
