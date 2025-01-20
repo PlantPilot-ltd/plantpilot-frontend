@@ -35,15 +35,28 @@ class _GreenhousesListScreenState
           if (dataStore.greenhouses.isEmpty) {
             return const _EmptyView();
           }
-          return ListView.builder(
-            itemCount: dataStore.greenhouses.length,
-            itemBuilder: (context, index) {
-              final controller = dataStore.greenhouses[index];
-              return ListTile(
-                title: Text(controller.name),
-                subtitle: Text(controller.remoteId),
-              );
-            },
+          return ListView(
+            children: [
+              /// Controllers list
+              SizedBox(
+                height: GreenhouseControllerTile.sizeFor(context).height,
+                child: ListView.builder(
+                  itemCount: dataStore.greenhouses.length,
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  itemBuilder: (context, index) {
+                    final controller = dataStore.greenhouses[index];
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12),
+                      child: GreenhouseControllerTile(
+                        controller: controller,
+                        onTap: () => presenter.onControllerTap(controller),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
           );
         },
       ),
@@ -56,7 +69,8 @@ class _LoadingView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(child: CircularProgressIndicator());
+    final size = MediaQuery.sizeOf(context).shortestSide * 0.6;
+    return Center(child: LeavesLoading(size: size));
   }
 }
 
@@ -65,8 +79,33 @@ class _EmptyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('No controllers found'),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 48),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            context.localization.ghListEmptyTitle,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              color: CoreUIColors.text,
+              fontSize: 20,
+              fontWeight: FontWeight.w700,
+            ),
+          ),
+          const SizedBox(height: 18),
+          Text(
+            context.localization.ghListEmptyDesc,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              color: CoreUIColors.secondaryText,
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

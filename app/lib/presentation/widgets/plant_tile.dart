@@ -3,7 +3,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
 
-class SmallPlantBlock extends StatelessWidget {
+class PlantTile extends StatelessWidget {
   final PlantEntity plant;
   final VoidCallback? onTap;
 
@@ -11,7 +11,7 @@ class SmallPlantBlock extends StatelessWidget {
   final Color _color;
   final LinearGradient _gradient;
 
-  const SmallPlantBlock({
+  const PlantTile({
     super.key,
     required this.plant,
     this.onTap,
@@ -26,7 +26,7 @@ class SmallPlantBlock extends StatelessWidget {
           ],
         );
 
-  const SmallPlantBlock.selected({
+  const PlantTile.selected({
     super.key,
     required this.plant,
     this.onTap,

@@ -160,6 +160,18 @@ abstract class AppLocalization {
   /// In en, this message translates to:
   /// **'Apply'**
   String get ghAddSelectApply;
+
+  /// No description provided for @ghListEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No controllers added'**
+  String get ghListEmptyTitle;
+
+  /// No description provided for @ghListEmptyDesc.
+  ///
+  /// In en, this message translates to:
+  /// **'Press Plus button to add new controller'**
+  String get ghListEmptyDesc;
 }
 
 class _AppLocalizationDelegate extends LocalizationsDelegate<AppLocalization> {

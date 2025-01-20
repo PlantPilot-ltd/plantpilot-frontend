@@ -16,5 +16,7 @@
             }
         }
     },
-    "ghAddSelectApply": "Подтвердить"
+    "ghAddSelectApply": "Подтвердить",
+    "ghListEmptyTitle": "Контроллеры еще не добавлены",
+    "ghListEmptyDesc": "Нажмите кнопку Плюс, чтобы добавить новый контроллер"
 }

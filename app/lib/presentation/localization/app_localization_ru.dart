@@ -40,4 +40,10 @@ class AppLocalizationRu extends AppLocalization {
 
   @override
   String get ghAddSelectApply => 'Подтвердить';
+
+  @override
+  String get ghListEmptyTitle => 'Контроллеры еще не добавлены';
+
+  @override
+  String get ghListEmptyDesc => 'Нажмите кнопку Плюс, чтобы добавить новый контроллер';
 }

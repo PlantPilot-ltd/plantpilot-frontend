@@ -91,12 +91,12 @@ class _GreenhouseAddScreenState
                       itemBuilder: (context, index) {
                         final plant = plants[index];
                         if (selectedPlants.contains(plant)) {
-                          return SmallPlantBlock.selected(
+                          return PlantTile.selected(
                             plant: plant,
                             onTap: () => dataStore.selectPlant(plant),
                           );
                         }
-                        return SmallPlantBlock(
+                        return PlantTile(
                           plant: dataStore.plants[index],
                           onTap: () =>
                               dataStore.selectPlant(dataStore.plants[index]),

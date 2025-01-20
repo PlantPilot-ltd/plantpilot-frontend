@@ -16,5 +16,7 @@
             }
         }
     },
-    "ghAddSelectApply": "Apply"
+    "ghAddSelectApply": "Apply",
+    "ghListEmptyTitle": "No controllers added",
+    "ghListEmptyDesc": "Press Plus button to add new controller"
 }

@@ -40,4 +40,10 @@ class AppLocalizationEn extends AppLocalization {
 
   @override
   String get ghAddSelectApply => 'Apply';
+
+  @override
+  String get ghListEmptyTitle => 'No controllers added';
+
+  @override
+  String get ghListEmptyDesc => 'Press Plus button to add new controller';
 }
